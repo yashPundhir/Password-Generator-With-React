@@ -10,7 +10,15 @@ const PasswordGenerator = () => {
 	const [password, setPassword] = useState("");
 
 	const passwordGenerator = useCallback(() => {
-		first;
+		let pass = "";
+		let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+		if (numbersAllowed) {
+			str = str + "0123456789";
+		}
+		if (charactersAllowed) {
+			str = str + "!@#$%^&*+-/=";
+		}
+		for (let index = 0; index < length; index++) {}
 	}, [length, numbersAllowed, charactersAllowed]);
 
 	return (
