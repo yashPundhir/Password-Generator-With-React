@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 const PasswordGenerator = () => {
 	const [length, setLength] = useState(8);
@@ -20,6 +20,10 @@ const PasswordGenerator = () => {
 		}
 		for (let index = 0; index < length; index++) {}
 	}, [length, numbersAllowed, charactersAllowed]);
+
+	useEffect(() => {
+		passwordGenerator();
+	}, [length, numberAllowed, charAllowed, passwordGenerator]);
 
 	return (
 		<div className="flex justify-center">
