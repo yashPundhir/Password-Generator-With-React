@@ -13,7 +13,7 @@ const PasswordGenerator = () => {
 		let pass = "";
 		let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 		if (numbersAllowed) {
-			str = str + "0123456789";
+			str = str + "01234567890123456789";
 		}
 		if (charactersAllowed) {
 			str = str + "!@#$%^&*+-/=";
@@ -37,7 +37,7 @@ const PasswordGenerator = () => {
 					<input
 						type="text"
 						readOnly
-						className="input rounded-r-none  w-[600px]"
+						className="input rounded-r-none  w-[600px] text-3xl   font-medium"
 						value={password}
 					/>
 
@@ -50,7 +50,7 @@ const PasswordGenerator = () => {
 						<input
 							type="range"
 							min="4"
-							max="80"
+							max="25"
 							value={length}
 							className=" w-[250px]"
 							onChange={(e) => {
