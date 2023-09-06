@@ -23,7 +23,7 @@ const PasswordGenerator = () => {
 
 	useEffect(() => {
 		passwordGenerator();
-	}, [length, numberAllowed, charAllowed, passwordGenerator]);
+	}, [length, numbersAllowed, charactersAllowed, passwordGenerator]);
 
 	return (
 		<div className="flex justify-center">
@@ -46,7 +46,7 @@ const PasswordGenerator = () => {
 							min="4"
 							max="80"
 							value={length}
-							className=" w-[250px] "
+							className=" w-[250px]"
 							onChange={(e) => {
 								setLength(e.target.value);
 							}}
@@ -58,9 +58,10 @@ const PasswordGenerator = () => {
 
 					<label className="label cursor-pointer flex gap-2 ">
 						<input
+							defaultChecked={numbersAllowed}
 							type="checkbox"
-							checked="checked"
 							className="checkbox checkbox-primary"
+							onChange={() => setNumbersAllowed((prev) => !prev)}
 						/>
 						<span className="label-text text-white text-lg font-medium">
 							Numbers
@@ -69,9 +70,10 @@ const PasswordGenerator = () => {
 
 					<label className="label cursor-pointer flex gap-2 ">
 						<input
+							defaultChecked={charactersAllowed}
 							type="checkbox"
-							checked="checked"
 							className="checkbox checkbox-primary"
+							onChange={() => setCharactersAllowed((prev) => !prev)}
 						/>
 						<span className="label-text text-white text-lg font-medium">
 							Characters
