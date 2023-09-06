@@ -26,6 +26,10 @@ const PasswordGenerator = () => {
 		setPassword(pass);
 	}, [length, numbersAllowed, charactersAllowed]);
 
+	const copyPasswordToClipboard = useCallback(() => {
+		window.navigator.clipboard.writeText(password);
+	}, [password]);
+
 	useEffect(() => {
 		passwordGenerator();
 	}, [length, numbersAllowed, charactersAllowed, passwordGenerator]);
@@ -41,7 +45,10 @@ const PasswordGenerator = () => {
 						value={password}
 					/>
 
-					<button className="btn font-semibold text-xl bg-blue-600  hover:bg-indigo-700 rounded-l-none text-white border-none outline-none">
+					<button
+						onClick={copyPasswordToClipboard}
+						className="btn font-semibold text-xl bg-blue-600  hover:bg-indigo-700 rounded-l-none text-white border-none outline-none"
+					>
 						Copy
 					</button>
 				</div>
