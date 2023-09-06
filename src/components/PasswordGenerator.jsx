@@ -18,7 +18,12 @@ const PasswordGenerator = () => {
 		if (charactersAllowed) {
 			str = str + "!@#$%^&*+-/=";
 		}
-		for (let index = 0; index < length; index++) {}
+		for (let index = 0; index < length; index++) {
+			let char = Math.floor(Math.random() * str.length + 1);
+			pass = pass + str.charAt(char);
+		}
+
+		setPassword(pass);
 	}, [length, numbersAllowed, charactersAllowed]);
 
 	useEffect(() => {
@@ -33,6 +38,7 @@ const PasswordGenerator = () => {
 						type="text"
 						readOnly
 						className="input rounded-r-none  w-[600px]"
+						value={password}
 					/>
 
 					<button className="btn font-semibold text-xl bg-blue-600  hover:bg-indigo-700 rounded-l-none text-white border-none outline-none">
